@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Tic-tac-toe Advanced</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>  
+  <body>
+    <aside>
+      <div id="settings">
+        <form class=setting>
+          <p class=setting__header>Количество игроков:</p>
+          <input type="number" class="number" id="players__quantity" onchange="chagePlayersQuantity()" value="2" min="2" max="8">
+          <p class=setting__text id="players__quantity__text"></p>
+        </form>
+        <form class=setting>
+          <p class=setting__header>Длина победного ряда:</p>
+          <input type="number" class="number" id="victory__line" onchange="changeVictoryLine()" value="3" min="3" max="6">
+          <p class=setting__text id="victory__line__text">(класика (пока только она и работает))</p>
+        </form>
+        <form class=setting>
+          <p class=setting__header>Срок сохранения результата хода:</p>
+          <input type="number" class="number" id="destruction__timer" onchange="changeDestructionTimerText()" placeholder="∾" min="3" max="8">
+          <span id="rounds">бесконечно</span>
+          <input type="button" id="destruction__timer__button" value="Сбросить" onclick="resetDestructionTimer()">
+          <p class=setting__text id="destruction__timer__text">(скучно, зато легко)</p>
+        </form>
+        <form class=setting>
+          <p class=setting__header>Срок удаления пустого периферийного ряда:</p>
+          <input type="number" class="number" id="row__countdown" onchange="changeRowCountdownText()" placeholder="∾" min="2" max="12">
+          <span id="moves">бесконечно</span>
+          <input type="button" id="row__countdown__button" value="Сбросить" onclick="rowDestructionCountdown()">
+          <p class=setting__text id="row__countdown__text">(поле будет беспрепятственно расширяться (можно изменить в любой момент))</p>
+        </form>
+        <div class="panel">
+          <button class="reset">С начала</button>
+          <button class="reset__score">Сброс счёта</button>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <div class="main__block" id="main__block1">
+        <div id="players__list"></div>
+        <div id="board"></div>
+        <div id="modal" class="hidden">
+          <div id="modal__window">
+            <h2></h2>
+            <div id="modal__buttons">
+              <button class="reset">Играть еще</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="score__list"></div>
+    </main>
+    <script src="logic.js"></script>
+    <script src="ui.js"></script>
+  </body>
+</html>
